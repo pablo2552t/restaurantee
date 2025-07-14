@@ -1,0 +1,79 @@
+---
+const platos = [
+  { nombre: "Pizza Italiana", imagen: "/images/pizza-italiana.jpg" },
+  { nombre: "Sushi Japones", imagen: "/images/sushi-japones.jpg" },
+  { nombre: "Pasta Alfredo", imagen: "/images/pasta-alfredo.jpg" },
+  { nombre: "Hamburguesa Clasica", imagen: "/images/hamburguesa-clasica.jpg" },
+  { nombre: "Tacos Mexicanos", imagen: "/images/tacos-mexicanos.jpg" },
+  { nombre: "Ensalada Fresca", imagen: "/images/ensalada-fresca.jpg" }
+];
+---
+
+<style>
+  .bienvenida {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/restaurant-bg.jpg');
+    background-size: cover;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .chef-info {
+    margin: 20px 0;
+    font-style: italic;
+  }
+
+  .descripcion {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  .plato {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+  }
+  .plato img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+</style>
+
+<div class="bienvenida">
+  <h1>El Rincón del Sabor Fino</h1>
+  <div class="chef-info">
+    <h2>Chef Ejecutivo: Pablo Mora</h2>
+    <p>Con más de 15 años de experiencia en gastronomía internacional</p>
+  </div>
+  <div class="descripcion">
+    <p>Descubre una experiencia culinaria única donde la tradición se encuentra con la innovación. 
+    Nuestro menú está cuidadosamente elaborado con los ingredientes más frescos y técnicas culinarias de clase mundial.</p>
+  </div>
+</div>
+
+<div class="container">
+  {
+    platos.map(plato => (
+      <div class="plato">
+        <img src={plato.imagen} alt={plato.nombre} />
+        <h3>{plato.nombre}</h3>
+      </div>
+    ))
+  }
+</div>
